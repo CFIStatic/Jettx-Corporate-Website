@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Update the host and add a Sitemap line once the production domain is confirmed.

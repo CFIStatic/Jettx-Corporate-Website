@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Jettx</title>
+<meta name="description" content="Get in touch with the Jettx team.">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark" aria-hidden="true">J</span>
+      <span>Jettx</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li class="nav-cta"><a class="btn btn--primary" href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero hero--compact">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Tell us what you are building.</h1>
+      <p class="lead">The more specific you are, the more useful our first reply will be.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid--2">
+      <div>
+        <h2>Send a message</h2>
+        <form class="form" data-contact-form novalidate>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" data-required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" data-required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="company">Company <span class="muted">(optional)</span></label>
+            <input id="company" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic">
+              <option value="project">A new project</option>
+              <option value="support">Support for an existing system</option>
+              <option value="careers">Careers</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" data-required></textarea>
+            <span class="field__hint">Include timelines and constraints if you have them.</span>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <p class="form__status" role="status" aria-live="polite" hidden></p>
+          <button class="btn btn--primary" type="submit">Send message</button>
+        </form>
+      </div>
+
+      <div>
+        <h2>Other ways to reach us</h2>
+        <div class="card" style="margin-bottom:1.25rem">
+          <h3>Email</h3>
+          <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+          <p class="muted text-small">Replace with the real address before launch.</p>
+        </div>
+        <div class="card">
+          <h3>Office</h3>
+          <p>Street address<br>City, Postcode<br>Country</p>
+          <p class="muted text-small">Placeholder — confirm the registered address.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <a class="brand" href="../index.html" style="color:#fff">
+          <span class="brand__mark" aria-hidden="true">J</span>
+          <span style="color:#fff">Jettx</span>
+        </a>
+        <p class="text-small" style="margin-top:1rem;max-width:32ch">
+          Building and operating dependable technology for teams that cannot afford downtime.
+        </p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#product">Product engineering</a></li>
+          <li><a href="services.html#platform">Platform &amp; cloud</a></li>
+          <li><a href="services.html#operations">Managed operations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><span class="text-small">Address line — to be confirmed</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; <span data-current-year>2026</span> Jettx. All rights reserved.</span>
+      <span class="text-small">Placeholder content — review before public launch.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
