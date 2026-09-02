@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #171717;
+  --foreground: #f4f4f4;
+  --toggle-track: #2a2a2a;
+  --toggle-knob: #f4f4f4;
+}
+
+html[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --toggle-track: #e8e8e8;
+  --toggle-knob: #171717;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  margin: 0;
+}
+
+.logo-on-light {
+  display: none;
+}
+
+html[data-theme="light"] .logo-on-dark {
+  display: none;
+}
+
+html[data-theme="light"] .logo-on-light {
+  display: block;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  width: 3.5rem;
+  height: 2rem;
+  align-items: center;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--toggle-track);
+  cursor: pointer;
+}
+
+.theme-toggle-knob {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: var(--toggle-knob);
+  transform: translateX(1.5rem);
+  transition: transform 160ms ease;
+}
+
+html[data-theme="light"] .theme-toggle-knob {
+  transform: translateX(0);
+}
