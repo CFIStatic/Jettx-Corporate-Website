@@ -1,19 +1,27 @@
-import { Inbox } from "@/components/inbox";
-import { JettxLogo } from "@/components/jettx-logo";
+import Image from "next/image";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Home() {
   return (
-    <div className="flex min-h-full flex-1 flex-col">
-      <header className="flex flex-col items-center px-6 pb-4 pt-10 sm:pt-14">
-        <JettxLogo
-          priority
-          className="h-auto w-[min(92vw,34rem)] select-none"
-        />
-      </header>
-      <main className="flex flex-1 flex-col px-3 pb-6 sm:px-6 sm:pb-8">
-        <h1 className="sr-only">Jettx inbox</h1>
-        <Inbox />
-      </main>
-    </div>
+    <main className="relative flex h-full min-h-dvh items-center justify-center px-6">
+      <h1 className="sr-only">Jettx</h1>
+      <ThemeToggle />
+      <Image
+        src="/jettx-logo-on-dark.png"
+        alt="Jettx"
+        width={1118}
+        height={334}
+        priority
+        className="logo-on-dark h-auto w-[min(92vw,36rem)] select-none"
+      />
+      <Image
+        src="/jettx-logo-on-light.png"
+        alt="Jettx"
+        width={1289}
+        height={370}
+        priority
+        className="logo-on-light h-auto w-[min(92vw,36rem)] select-none"
+      />
+    </main>
   );
 }
