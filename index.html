@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Jettx</title>
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", theme === "dark" ? "#0a0a0a" : "#ffffff");
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+
+      html[data-theme="light"] {
+        --bg: #ffffff;
+        --fg: #0a0a0a;
+        --btn-bg: rgba(10, 10, 10, 0.04);
+        --btn-bg-hover: rgba(10, 10, 10, 0.08);
+        --btn-border: rgba(10, 10, 10, 0.12);
+      }
+
+      html[data-theme="dark"] {
+        --bg: #0a0a0a;
+        --fg: #ffffff;
+        --btn-bg: rgba(255, 255, 255, 0.06);
+        --btn-bg-hover: rgba(255, 255, 255, 0.12);
+        --btn-border: rgba(255, 255, 255, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        background: var(--bg);
+        color: var(--fg);
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      .logo {
+        display: block;
+        width: min(70vw, 520px);
+        height: auto;
+      }
+
+      html[data-theme="light"] .logo-dark,
+      html[data-theme="dark"] .logo-light {
+        display: none;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 1.1rem;
+        right: 1.1rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 999px;
+        border: 1px solid var(--btn-border);
+        background: var(--btn-bg);
+        color: var(--fg);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        padding: 0;
+        transition: background 160ms ease, border-color 160ms ease;
+      }
+
+      .theme-toggle:hover {
+        background: var(--btn-bg-hover);
+      }
+
+      .theme-toggle:focus-visible {
+        outline: 2px solid var(--fg);
+        outline-offset: 3px;
+      }
+
+      .theme-toggle svg {
+        width: 1.05rem;
+        height: 1.05rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      html[data-theme="light"] .icon-sun,
+      html[data-theme="dark"] .icon-moon {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      type="button"
+      class="theme-toggle"
+      id="theme-toggle"
+      aria-label="Switch to dark theme"
+    >
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z" />
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 3v1.6M12 19.4V21M4.6 4.6l1.1 1.1M18.3 18.3l1.1 1.1M3 12h1.6M19.4 12H21M4.6 19.4l1.1-1.1M18.3 5.7l1.1-1.1"
+        />
+      </svg>
+    </button>
+
+    <main>
+      <img
+        class="logo logo-light"
+        src="assets/logo-light.png"
+        alt="Jettx"
+        width="1165"
+        height="366"
+      />
+      <img
+        class="logo logo-dark"
+        src="assets/logo-dark.png"
+        alt=""
+        width="1165"
+        height="366"
+        aria-hidden="true"
+      />
+    </main>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.getElementById("theme-toggle");
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+
+        function currentTheme() {
+          return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+        }
+
+        function applyTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          if (persist) {
+            localStorage.setItem("theme", theme);
+          }
+          themeColor.setAttribute(
+            "content",
+            theme === "dark" ? "#0a0a0a" : "#ffffff"
+          );
+          toggle.setAttribute(
+            "aria-label",
+            theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+          );
+        }
+
+        applyTheme(currentTheme(), false);
+
+        toggle.addEventListener("click", function () {
+          applyTheme(currentTheme() === "dark" ? "light" : "dark", true);
+        });
+
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", function (event) {
+            if (!localStorage.getItem("theme")) {
+              applyTheme(event.matches ? "dark" : "light", false);
+            }
+          });
+      })();
+    </script>
+  </body>
+</html>
