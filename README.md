@@ -1,6 +1,6 @@
 # Jettx
 
-Minimal corporate homepage: the JETTX wordmark, full-bleed, with light and dark themes. No marketing copy, no navigation.
+Minimal corporate homepage: the JETTX wordmark, full-bleed on a dark plate. No marketing copy, no navigation, no theme toggle.
 
 ## Files
 
@@ -8,18 +8,14 @@ Minimal corporate homepage: the JETTX wordmark, full-bleed, with light and dark 
 .
 ├── index.html
 ├── assets/
-│   ├── logo-light.png
 │   └── logo-dark.png
 └── README.md
 ```
 
-## Theme
+## Page
 
-- Defaults to the system `prefers-color-scheme`.
-- The top-right toggle stores `theme` (`light` | `dark`) in `localStorage`.
-- Light: page `#ffffff` and `assets/logo-light.png`.
-- Dark: page `#0a0a0a` and `assets/logo-dark.png`.
-- Visible logos cover the viewport (`100vw` × `100vh` / `100dvh`, `object-fit: cover`).
+- Background `#0a0a0a`, `theme-color` `#0a0a0a`.
+- `assets/logo-dark.png` covers the viewport (`100vw` × `100vh` / `100dvh`, `object-fit: cover`).
 
 ## Local
 
