@@ -15,7 +15,7 @@ Minimal corporate homepage: the JETTX wordmark, full-bleed on a dark plate. No m
 ## Page
 
 - Background `#0a0a0a`, `theme-color` `#0a0a0a`.
-- `assets/logo-dark.png` covers the viewport (`100vw` × `100vh` / `100dvh`, `object-fit: cover`).
+- `assets/logo-dark.png` fits the viewport (`100vw` × `100vh` / `100dvh`, `object-fit: contain`) so the full wordmark stays visible on portrait phones and landscape desktops.
 
 ## Local
 
